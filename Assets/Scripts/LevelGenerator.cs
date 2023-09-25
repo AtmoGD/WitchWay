@@ -16,12 +16,15 @@ public class LevelGenerator : MonoBehaviour
 
     [Header("Level Generation")]
     [SerializeField] private List<BlockData> blocks = new List<BlockData>();
+    [SerializeField] private List<BlockData> walls = new List<BlockData>();
+    [SerializeField] private List<BlockData> obstacles = new List<BlockData>();
     [field: SerializeField] public int Width { get; private set; } = 10;
     [field: SerializeField] public int Height { get; private set; } = 10;
     [field: SerializeField] public float HexagonSize { get; private set; } = 1.0f;
     [field: SerializeField] public float HexagonSpacing { get; private set; } = 0.1f;
+    [field: SerializeField] public float ObstacleSpawnChance { get; private set; } = 0.1f;
 
-    public GameObject StartBlock { get; private set; } = null;
+    public Block StartBlock { get; private set; } = null;
 
     private void Awake()
     {
@@ -44,20 +47,40 @@ public class LevelGenerator : MonoBehaviour
         {
             for (int y = 0; y < Height; y++)
             {
-                BlockData block = GetRandomBlock();
-
                 Vector3 position = new Vector3(
                     x * (HexagonSize + HexagonSpacing) + (y % 2 == 0 ? 0 : HexagonSize / 2f),
                     0,
                     y * (HexagonSize + HexagonSpacing) * Mathf.Sqrt(3) / 2f
                 );
 
-                GameObject blockObject = Instantiate(block.prefab, position, block.prefab.transform.rotation, transform);
+                bool isWall = false;
 
-                if (StartBlock == null && UnityEngine.Random.Range(0f, 1f) <= 0.1f)
-                    StartBlock = blockObject;
+                if (x == 0 || x == Width - 1 || y == 0 || y == Height - 1)
+                    isWall = true;
+
+                bool isObstacle = UnityEngine.Random.Range(0f, 1f) <= ObstacleSpawnChance;
+
+                BlockData block = isWall ? GetRandomBlock(walls) : isObstacle ? GetRandomBlock(obstacles) : GetRandomBlock(blocks);
+
+                Instantiate(block.prefab, position, block.prefab.transform.rotation, transform);
             }
         }
+
+        SetStartBlock();
+    }
+
+    private void SetStartBlock()
+    {
+        List<Block> blocks = new List<Block>();
+        foreach (Transform child in transform)
+        {
+            Block block = child.GetComponent<Block>();
+            if (block != null && block.blockType != BlockType.Wall && block.blockType != BlockType.Obstacle)
+                blocks.Add(block);
+        }
+
+        if (blocks.Count > 0)
+            StartBlock = blocks[UnityEngine.Random.Range(0, blocks.Count)];
     }
 
     public void ClearLevel()
@@ -74,11 +97,11 @@ public class LevelGenerator : MonoBehaviour
         StartBlock = null;
     }
 
-    private BlockData GetRandomBlock()
+    private BlockData GetRandomBlock(List<BlockData> blockToChooseFrom)
     {
         float random = UnityEngine.Random.Range(0f, 1f);
         float total = 0f;
-        foreach (BlockData block in blocks)
+        foreach (BlockData block in blockToChooseFrom)
         {
             total += block.spawnChance;
             if (random <= total)

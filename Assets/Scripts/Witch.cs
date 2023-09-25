@@ -10,7 +10,7 @@ public class Witch : MonoBehaviour
 
     private int dir = 30;
     private bool isActive = false;
-    private GameObject targetBlock = null;
+    private Block targetBlock = null;
 
     // Just a helper property to get the LevelGenerator instanceat runtime and in the editor
     private LevelGenerator LevelGen
@@ -48,7 +48,10 @@ public class Witch : MonoBehaviour
         transform.position = Vector3.MoveTowards(transform.position, targetBlock.transform.position, speed * Time.deltaTime);
 
         if (Vector3.Distance(transform.position, targetBlock.transform.position) < 0.1f)
+        {
+            CheckCurrentBlock();
             CalculateNextBlock();
+        }
     }
 
     public void Rotate()
@@ -71,9 +74,14 @@ public class Witch : MonoBehaviour
         Turn(-1);
     }
 
-    public void SetTargetBlock(GameObject block)
+    public void SetTargetBlock(Block block)
     {
         targetBlock = block;
+    }
+
+    public void CheckCurrentBlock()
+    {
+        // Check if the current block is a obstacle and if so die
     }
 
     public void CalculateNextBlock()
@@ -82,7 +90,7 @@ public class Witch : MonoBehaviour
 
         Collider[] blocks = Physics.OverlapSphere(nextBlockPosition, 0.1f, blockLayer);
         if (blocks.Length > 0)
-            SetTargetBlock(blocks[0].gameObject);
+            SetTargetBlock(blocks[0].GetComponent<Block>());
     }
 
     private void OnDrawGizmos()

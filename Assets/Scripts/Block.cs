@@ -2,17 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum BlockType
+{
+    Base,
+    Wall,
+    Obstacle
+}
+
 public class Block : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    [field: SerializeField] public BlockType blockType { get; private set; } = BlockType.Base;
 }

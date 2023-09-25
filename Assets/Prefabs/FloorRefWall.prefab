@@ -62,11 +62,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 118e4978b68b73b4faaf269799eeae89, type: 2}
+      objectReference: {fileID: 2100000, guid: 9ec0cec2d23171541a571270d4dc0e52, type: 2}
     - target: {fileID: 919132149155446097, guid: 946c34a19af106f4f88e886ea1182b5c,
         type: 3}
       propertyPath: m_Name
-      value: FloorRef
+      value: FloorRefWall
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 946c34a19af106f4f88e886ea1182b5c,
         type: 3}
@@ -131,3 +131,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ed2530b296c39c47ac59b89ac239bf3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <blockType>k__BackingField: 1
