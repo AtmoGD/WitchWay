@@ -62,6 +62,7 @@ public class Witch : MonoBehaviour
     public void Turn(int direction)
     {
         dir += direction * 60;
+        CalculateNextBlock();
     }
 
     public void TurnRight()
@@ -82,6 +83,29 @@ public class Witch : MonoBehaviour
     public void CheckCurrentBlock()
     {
         // Check if the current block is a obstacle and if so die
+    }
+
+    public bool SetFreeStartRotation()
+    {
+        CalculateNextBlock();
+
+        if (targetBlock == null) return false;
+
+        List<int> directions = new List<int>() { 30, 90, 150, 210, 270, 330 };
+
+        while (directions.Count > 0)
+        {
+            dir = directions[UnityEngine.Random.Range(0, directions.Count)];
+            directions.Remove(dir);
+
+            CalculateNextBlock();
+
+            transform.rotation = Quaternion.LookRotation(targetBlock.transform.position - transform.position);
+
+            if (targetBlock.BlockType == BlockType.Base) return true;
+        }
+
+        return false;
     }
 
     public void CalculateNextBlock()

@@ -17,8 +17,26 @@ public class GameManager : MonoBehaviour
     {
         levelGenerator.GenerateLevel();
 
+        PositionWitch(10);
+        // witch.SetTargetBlock(levelGenerator.StartBlock);
+        // witch.transform.position = levelGenerator.StartBlock.transform.position;
+        // witch.CalculateNextBlock();
+    }
+
+    public void PositionWitch(int _maxCount)
+    {
+        if (_maxCount <= 0)
+        {
+            Debug.LogError("Could not position witch");
+            return;
+        }
+
+        levelGenerator.SetStartBlock();
         witch.SetTargetBlock(levelGenerator.StartBlock);
         witch.transform.position = levelGenerator.StartBlock.transform.position;
-        witch.CalculateNextBlock();
+
+        if (!witch.SetFreeStartRotation())
+            PositionWitch(_maxCount--);
+        // witch.CalculateNextBlock();
     }
 }

@@ -70,7 +70,7 @@ public class LevelGenerator : MonoBehaviour
         SetStartBlock();
     }
 
-    private void SetStartBlock()
+    public void SetStartBlock()
     {
         List<Block> blocks = new List<Block>();
         foreach (Transform child in transform)
