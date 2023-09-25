@@ -53,16 +53,17 @@ public class LevelGenerator : MonoBehaviour
                     y * (HexagonSize + HexagonSpacing) * Mathf.Sqrt(3) / 2f
                 );
 
-                bool isWall = false;
+                BlockData blockData = GetRandomBlock(blocks);
 
-                if (x == 0 || x == Width - 1 || y == 0 || y == Height - 1)
-                    isWall = true;
+                Block block = Instantiate(blockData.prefab, position, blockData.prefab.transform.rotation, transform).GetComponent<Block>();
 
+                bool isWall = x == 0 || x == Width - 1 || y == 0 || y == Height - 1;
                 bool isObstacle = UnityEngine.Random.Range(0f, 1f) <= ObstacleSpawnChance;
 
-                BlockData block = isWall ? GetRandomBlock(walls) : isObstacle ? GetRandomBlock(obstacles) : GetRandomBlock(blocks);
-
-                Instantiate(block.prefab, position, block.prefab.transform.rotation, transform);
+                if (isWall)
+                    block.SetBlock(BlockType.Wall, GetRandomBlock(walls).prefab);
+                else if (isObstacle)
+                    block.SetBlock(BlockType.Obstacle, GetRandomBlock(obstacles).prefab);
             }
         }
 
@@ -75,7 +76,7 @@ public class LevelGenerator : MonoBehaviour
         foreach (Transform child in transform)
         {
             Block block = child.GetComponent<Block>();
-            if (block != null && block.blockType != BlockType.Wall && block.blockType != BlockType.Obstacle)
+            if (block != null && block.BlockType == BlockType.Base)
                 blocks.Add(block);
         }
 
