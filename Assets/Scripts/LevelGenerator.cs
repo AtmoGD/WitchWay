@@ -12,11 +12,24 @@ public class BlockData
 
 public class LevelGenerator : MonoBehaviour
 {
+    public static LevelGenerator Instance { get; private set; } = null;
+
+    [Header("Level Generation")]
     [SerializeField] private List<BlockData> blocks = new List<BlockData>();
-    [SerializeField] private int width = 10;
-    [SerializeField] private int height = 10;
-    [SerializeField] private float hexagonSize = 1f;
-    [SerializeField] private float hexagonSpacing = 0.1f;
+    [field: SerializeField] public int Width { get; private set; } = 10;
+    [field: SerializeField] public int Height { get; private set; } = 10;
+    [field: SerializeField] public float HexagonSize { get; private set; } = 1.0f;
+    [field: SerializeField] public float HexagonSpacing { get; private set; } = 0.1f;
+
+    public GameObject StartBlock { get; private set; } = null;
+
+    private void Awake()
+    {
+        if (Instance == null)
+            Instance = this;
+        else
+            Destroy(gameObject);
+    }
 
     private void Start()
     {
@@ -25,33 +38,30 @@ public class LevelGenerator : MonoBehaviour
 
     public void GenerateLevel()
     {
-        // Clear the level
         ClearLevel();
 
-        // Generate a grid of hexagon blocks
-        for (int x = 0; x < width; x++)
+        for (int x = 0; x < Width; x++)
         {
-            for (int y = 0; y < height; y++)
+            for (int y = 0; y < Height; y++)
             {
-                // Get a random block
                 BlockData block = GetRandomBlock();
 
-                // Calculate the position of the block
                 Vector3 position = new Vector3(
-                    x * (hexagonSize + hexagonSpacing) + (y % 2 == 0 ? 0 : hexagonSize / 2f),
+                    x * (HexagonSize + HexagonSpacing) + (y % 2 == 0 ? 0 : HexagonSize / 2f),
                     0,
-                    y * (hexagonSize + hexagonSpacing) * Mathf.Sqrt(3) / 2f
+                    y * (HexagonSize + HexagonSpacing) * Mathf.Sqrt(3) / 2f
                 );
 
-                // Instantiate the block
                 GameObject blockObject = Instantiate(block.prefab, position, block.prefab.transform.rotation, transform);
+
+                if (StartBlock == null && UnityEngine.Random.Range(0f, 1f) <= 0.1f)
+                    StartBlock = blockObject;
             }
         }
     }
 
     public void ClearLevel()
     {
-        // Destroy all blocks
         for (int i = transform.childCount - 1; i >= 0; i--)
         {
 #if UNITY_EDITOR
@@ -60,11 +70,12 @@ public class LevelGenerator : MonoBehaviour
             Destroy(transform.GetChild(i).gameObject);
 #endif
         }
+
+        StartBlock = null;
     }
 
     private BlockData GetRandomBlock()
     {
-        // Get a random block
         float random = UnityEngine.Random.Range(0f, 1f);
         float total = 0f;
         foreach (BlockData block in blocks)
@@ -75,5 +86,14 @@ public class LevelGenerator : MonoBehaviour
         }
 
         return null;
+    }
+
+    private void OnDrawGizmos()
+    {
+        if (StartBlock != null)
+        {
+            Gizmos.color = Color.green;
+            Gizmos.DrawWireSphere(StartBlock.transform.position, HexagonSize / 2f);
+        }
     }
 }

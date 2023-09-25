@@ -11,6 +11,20 @@ public class GameManager : MonoBehaviour
     private Vector2 pointerPosition = Vector2.zero;
     private bool isPlacing = false;
 
+    private void Start()
+    {
+        StartLevel();
+    }
+
+    public void StartLevel()
+    {
+        levelGenerator.GenerateLevel();
+
+        witch.SetTargetBlock(levelGenerator.StartBlock);
+        witch.transform.position = levelGenerator.StartBlock.transform.position;
+        witch.CalculateNextBlock();
+    }
+
     private void StartPlacing()
     {
         if (isPlacing) return;
