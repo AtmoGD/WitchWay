@@ -1,14 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
 public class Card : MonoBehaviour, IPointerDownHandler
 {
     [SerializeField] private float timeToLive = 30f;
     [SerializeField] private float speed = 1f;
-    [SerializeField] private Slider timeSlider = null;
+    [field: SerializeField] public List<BlockType> CanBePlacedOn { get; private set; } = new List<BlockType>();
     [field: SerializeField] public BlockType BlockType { get; private set; } = BlockType.Obstacle;
     [field: SerializeField] public GameObject Prefab { get; private set; } = null;
 
@@ -27,13 +26,6 @@ public class Card : MonoBehaviour, IPointerDownHandler
         Move();
 
         if (isPlacing) return;
-
-        timeLeft -= Time.deltaTime;
-
-        timeSlider.value = timeLeft / timeToLive;
-
-        if (timeLeft <= 0f)
-            Die();
     }
 
     public void Move()

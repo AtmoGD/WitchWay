@@ -25,7 +25,7 @@ public class PlacementController : MonoBehaviour
     {
         if (!isPlacing) return;
 
-        if (block && block.BlockType == BlockType.Base && placementObject && placementObject.activeSelf)
+        if (block && card.CanBePlacedOn.Contains(block.BlockType) && placementObject && placementObject.activeSelf)
         {
             block.SetBlock(card.BlockType, card.Prefab);
             card.Die();

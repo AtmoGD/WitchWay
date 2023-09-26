@@ -12,7 +12,7 @@ public class GameManagerEditor : Editor
 
         GameManager gameManager = (GameManager)target;
 
-        if (GUILayout.Button("Start Level"))
-            gameManager.StartLevel();
+        if (GUILayout.Button("Set up Level"))
+            gameManager.SetUpLevel();
     }
 }

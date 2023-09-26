@@ -7,20 +7,47 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Witch witch = null;
     [SerializeField] private LevelGenerator levelGenerator = null;
     [SerializeField] private PlacementController placementController = null;
+    [SerializeField] private AnimationCurve speedCurve = null;
+
+    public bool IsSetActive { get; private set; } = false;
+    public float GameTime { get; private set; } = 0f;
+    public float SpeedMultiplier
+    {
+        get
+        {
+            return speedCurve.Evaluate(GameTime * 0.1f);
+        }
+    }
 
     private void Start()
     {
-        StartLevel();
+        SetUpLevel();
     }
 
-    public void StartLevel()
+    public void SetUpLevel()
     {
         levelGenerator.GenerateLevel();
 
         PositionWitch(10);
-        // witch.SetTargetBlock(levelGenerator.StartBlock);
-        // witch.transform.position = levelGenerator.StartBlock.transform.position;
-        // witch.CalculateNextBlock();
+    }
+
+    public void StartLevel()
+    {
+        witch.SetIsActive();
+
+        IsSetActive = true;
+    }
+
+    public void EndLevel()
+    {
+        IsSetActive = false;
+    }
+
+    public void Update()
+    {
+        if (!IsSetActive) return;
+
+        GameTime += Time.deltaTime;
     }
 
     public void PositionWitch(int _maxCount)
@@ -37,6 +64,5 @@ public class GameManager : MonoBehaviour
 
         if (!witch.SetFreeStartRotation())
             PositionWitch(_maxCount--);
-        // witch.CalculateNextBlock();
     }
 }

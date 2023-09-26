@@ -5,6 +5,7 @@ using UnityEngine;
 public class Witch : MonoBehaviour
 {
     [SerializeField] private LevelGenerator LevelGen = null;
+    [SerializeField] private GameManager gameManager = null;
     [SerializeField] private float speed = 1f;
     [SerializeField] private float rotationSpeed = 1f;
     [SerializeField] private LayerMask blockLayer = 0;
@@ -13,9 +14,12 @@ public class Witch : MonoBehaviour
     private bool isActive = false;
     private Block targetBlock = null;
 
-    private void Start()
+    private float Speed
     {
-        isActive = true;
+        get
+        {
+            return speed * gameManager.SpeedMultiplier;
+        }
     }
 
     private void Update()
@@ -34,7 +38,7 @@ public class Witch : MonoBehaviour
 
     public void Move()
     {
-        transform.position = Vector3.MoveTowards(transform.position, targetBlock.transform.position, speed * Time.deltaTime);
+        transform.position = Vector3.MoveTowards(transform.position, targetBlock.transform.position, Speed * Time.deltaTime);
 
         if (Vector3.Distance(transform.position, targetBlock.transform.position) < 0.1f)
         {
@@ -66,6 +70,16 @@ public class Witch : MonoBehaviour
     public void SetTargetBlock(Block _block)
     {
         targetBlock = _block;
+    }
+
+    public void SetIsActive()
+    {
+        isActive = true;
+    }
+
+    public void Die()
+    {
+        Destroy(gameObject);
     }
 
     public void CheckCurrentBlock()
