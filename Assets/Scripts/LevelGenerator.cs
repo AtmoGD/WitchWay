@@ -12,8 +12,6 @@ public class BlockData
 
 public class LevelGenerator : MonoBehaviour
 {
-    public static LevelGenerator Instance { get; private set; } = null;
-
     [Header("Level Generation")]
     [SerializeField] private List<BlockData> blocks = new List<BlockData>();
     [SerializeField] private List<BlockData> walls = new List<BlockData>();
@@ -25,14 +23,6 @@ public class LevelGenerator : MonoBehaviour
     [field: SerializeField] public float ObstacleSpawnChance { get; private set; } = 0.1f;
 
     public Block StartBlock { get; private set; } = null;
-
-    private void Awake()
-    {
-        if (Instance == null)
-            Instance = this;
-        else
-            Destroy(gameObject);
-    }
 
     private void Start()
     {
@@ -98,11 +88,11 @@ public class LevelGenerator : MonoBehaviour
         StartBlock = null;
     }
 
-    private BlockData GetRandomBlock(List<BlockData> blockToChooseFrom)
+    private BlockData GetRandomBlock(List<BlockData> _blockToChooseFrom)
     {
         float random = UnityEngine.Random.Range(0f, 1f);
         float total = 0f;
-        foreach (BlockData block in blockToChooseFrom)
+        foreach (BlockData block in _blockToChooseFrom)
         {
             total += block.spawnChance;
             if (random <= total)

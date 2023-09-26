@@ -16,13 +16,13 @@ public class Block : MonoBehaviour
     [field: SerializeField] public BlockType BlockType { get; set; } = BlockType.Base;
     [field: SerializeField] public GameObject BlockObject { get; set; } = null;
 
-    public void SetBlock(BlockType blockType, GameObject prefab)
+    public void SetBlock(BlockType _blockType, GameObject _prefab)
     {
-        BlockType = blockType;
+        BlockType = _blockType;
 
         if (BlockType != BlockType.Base)
         {
-            BlockObject = Instantiate(prefab, transform.position, prefab.transform.rotation, ObjectParent);
+            BlockObject = Instantiate(_prefab, transform.position, _prefab.transform.rotation, ObjectParent);
             BlockObject.transform.localScale = Vector3.one;
         }
     }

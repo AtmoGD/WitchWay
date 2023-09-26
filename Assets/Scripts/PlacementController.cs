@@ -5,37 +5,84 @@ using UnityEngine.InputSystem;
 
 public class PlacementController : MonoBehaviour
 {
+    [SerializeField] private LayerMask placementLayer = 0;
     private Vector2 pointerPosition = Vector2.zero;
     private bool isPlacing = false;
+    private Card card = null;
+    private GameObject placementObject = null;
+    private Block block = null;
 
-    private void StartPlacing()
+    public void StartPlacingCard(Card card)
     {
         if (isPlacing) return;
 
-        isPlacing = true;
+        this.card = card;
 
-        print("Start Placing");
+        isPlacing = true;
     }
 
     private void StopPlacing()
     {
         if (!isPlacing) return;
 
-        isPlacing = false;
+        if (block && block.BlockType == BlockType.Base && placementObject && placementObject.activeSelf)
+        {
+            block.SetBlock(card.BlockType, card.Prefab);
+            card.Die();
+        }
+        else
+        {
+            card.CancelPlacement();
+        }
 
-        print("Stop Placing");
+        ResetThis();
+
+        isPlacing = false;
     }
 
-    public void OnPlaceObject(InputAction.CallbackContext context)
+    private void ResetThis()
     {
-        if (context.started)
-            StartPlacing();
-        else if (context.canceled)
+        card = null;
+        Destroy(placementObject);
+        placementObject = null;
+        block = null;
+    }
+
+    public void OnPlaceObject(InputAction.CallbackContext _context)
+    {
+        if (_context.canceled)
             StopPlacing();
     }
 
-    public void OnPointerPosition(InputAction.CallbackContext context)
+    public void OnPointerPosition(InputAction.CallbackContext _context)
     {
-        pointerPosition = context.ReadValue<Vector2>();
+        pointerPosition = _context.ReadValue<Vector2>();
+
+        if (!isPlacing || !card) return;
+
+        UpdatePlacementObject();
+    }
+
+    private void UpdatePlacementObject()
+    {
+        if (!placementObject)
+            placementObject = Instantiate(card.Prefab, pointerPosition, Quaternion.identity);
+
+        Ray ray = Camera.main.ScreenPointToRay(pointerPosition);
+        RaycastHit hit;
+
+        if (Physics.Raycast(ray, out hit, Mathf.Infinity, placementLayer))
+        {
+            Block newBlock = hit.collider.GetComponent<Block>();
+
+            if (newBlock != null && newBlock.BlockType == BlockType.Base)
+            {
+                block = newBlock;
+                placementObject.transform.position = block.transform.position;
+                placementObject.SetActive(true);
+            }
+            else
+                placementObject.SetActive(false);
+        }
     }
 }

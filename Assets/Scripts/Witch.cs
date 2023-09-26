@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Witch : MonoBehaviour
 {
+    [SerializeField] private LevelGenerator LevelGen = null;
     [SerializeField] private float speed = 1f;
     [SerializeField] private float rotationSpeed = 1f;
     [SerializeField] private LayerMask blockLayer = 0;
@@ -11,18 +12,6 @@ public class Witch : MonoBehaviour
     private int dir = 30;
     private bool isActive = false;
     private Block targetBlock = null;
-
-    // Just a helper property to get the LevelGenerator instanceat runtime and in the editor
-    private LevelGenerator LevelGen
-    {
-        get
-        {
-            if (LevelGenerator.Instance == null)
-                return FindObjectOfType<LevelGenerator>();
-
-            return LevelGenerator.Instance;
-        }
-    }
 
     private void Start()
     {
@@ -62,7 +51,6 @@ public class Witch : MonoBehaviour
     public void Turn(int direction)
     {
         dir += direction * 60;
-        CalculateNextBlock();
     }
 
     public void TurnRight()
@@ -75,9 +63,9 @@ public class Witch : MonoBehaviour
         Turn(-1);
     }
 
-    public void SetTargetBlock(Block block)
+    public void SetTargetBlock(Block _block)
     {
-        targetBlock = block;
+        targetBlock = _block;
     }
 
     public void CheckCurrentBlock()
@@ -87,8 +75,6 @@ public class Witch : MonoBehaviour
 
     public bool SetFreeStartRotation()
     {
-        CalculateNextBlock();
-
         if (targetBlock == null) return false;
 
         List<int> directions = new List<int>() { 30, 90, 150, 210, 270, 330 };
