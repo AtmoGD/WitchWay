@@ -75,7 +75,7 @@ public class PlacementController : MonoBehaviour
         {
             Block newBlock = hit.collider.GetComponent<Block>();
 
-            if (newBlock != null && newBlock.BlockType == BlockType.Base)
+            if (newBlock != null && card.CanBePlacedOn.Contains(newBlock.BlockType))
             {
                 block = newBlock;
                 placementObject.transform.position = block.transform.position;

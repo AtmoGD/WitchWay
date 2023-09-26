@@ -14,6 +14,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 6391255494310734771, guid: 293c118d7907e334d9babe0df1e6f5dc,
         type: 3}
+    - target: {fileID: 671541800922931436, guid: 78d8edf8ce69e614faf247d501e4edc3,
+        type: 3}
+      propertyPath: <BlockType>k__BackingField
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 4447932541294703850, guid: 78d8edf8ce69e614faf247d501e4edc3,
         type: 3}
       propertyPath: m_Pivot.x

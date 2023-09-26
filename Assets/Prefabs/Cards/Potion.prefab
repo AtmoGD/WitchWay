@@ -10,6 +10,12 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 671541800922931436, guid: 78d8edf8ce69e614faf247d501e4edc3,
         type: 3}
+      propertyPath: <Prefab>k__BackingField
+      value: 
+      objectReference: {fileID: 8933946154423567519, guid: e97038c8bb0581d4e8e0f467cc8a40b1,
+        type: 3}
+    - target: {fileID: 671541800922931436, guid: 78d8edf8ce69e614faf247d501e4edc3,
+        type: 3}
       propertyPath: <BlockType>k__BackingField
       value: 3
       objectReference: {fileID: 0}

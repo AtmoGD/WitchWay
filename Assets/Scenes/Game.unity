@@ -14757,24 +14757,24 @@ MonoBehaviour:
   - {fileID: 527638552}
   startPosition: {fileID: 1145503797}
   cardDatas:
-  - card: {fileID: 6902680685854951543, guid: 3f9ed1d4d0c6a8549a84eb73330a4c8e, type: 3}
-    spawnChance: 0.4
-  - card: {fileID: 5516347480608390610, guid: a8bac813dfba3874fa93233583906b13, type: 3}
-    spawnChance: 0.4
-  - card: {fileID: 1665392253562254255, guid: 8ddddc69e6ed406439d7b4637c46d7e8, type: 3}
-    spawnChance: 0.1
-  - card: {fileID: 2752403818914479490, guid: 214623f811cb06446ae1f989668cc763, type: 3}
-    spawnChance: 0.2
-  - card: {fileID: 2748959437350126348, guid: d19a869eb75ada34f94675340bc79afd, type: 3}
-    spawnChance: 0.3
-  - card: {fileID: 7223357560489745295, guid: 2f175bf376ca43442a453e39cfc805a4, type: 3}
-    spawnChance: 0.4
   - card: {fileID: 4224700257773561768, guid: 73ff7e2831f6f85478b790cde202ea42, type: 3}
-    spawnChance: 0.5
+    spawnChance: 10
+  - card: {fileID: 6902680685854951543, guid: 3f9ed1d4d0c6a8549a84eb73330a4c8e, type: 3}
+    spawnChance: 10
+  - card: {fileID: 5516347480608390610, guid: a8bac813dfba3874fa93233583906b13, type: 3}
+    spawnChance: 10
+  - card: {fileID: 1665392253562254255, guid: 8ddddc69e6ed406439d7b4637c46d7e8, type: 3}
+    spawnChance: 10
+  - card: {fileID: 2752403818914479490, guid: 214623f811cb06446ae1f989668cc763, type: 3}
+    spawnChance: 1
+  - card: {fileID: 2748959437350126348, guid: d19a869eb75ada34f94675340bc79afd, type: 3}
+    spawnChance: 1
+  - card: {fileID: 7223357560489745295, guid: 2f175bf376ca43442a453e39cfc805a4, type: 3}
+    spawnChance: 1
   - card: {fileID: 7889078150232113136, guid: 6deee5e9fbf8ab2439dfd237830e9e62, type: 3}
-    spawnChance: 0.6
+    spawnChance: 1
   - card: {fileID: 6671424525860429161, guid: 4392ac3092197b44fbd20d6304efeb8e, type: 3}
-    spawnChance: 0.7
+    spawnChance: 1
   - card: {fileID: 716691447872274707, guid: e8a98521a562934428e8ea6de760e61b, type: 3}
     spawnChance: 1
 --- !u!225 &374378449
@@ -27508,6 +27508,38 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 786540591}
   m_Mesh: {fileID: -4575064544082784862, guid: 946c34a19af106f4f88e886ea1182b5c, type: 3}
+--- !u!1 &794237226
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 794237227}
+  m_Layer: 0
+  m_Name: Skin
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &794237227
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 794237226}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1469822518}
+  m_Father: {fileID: 1656449124}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &796992634
 GameObject:
   m_ObjectHideFlags: 0
@@ -50032,7 +50064,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 1656449124}
+    m_TransformParent: {fileID: 794237227}
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 61728c1a2ccbe2343b5b04744d234add,
         type: 3}
@@ -56525,6 +56557,7 @@ GameObject:
   - component: {fileID: 1656449125}
   - component: {fileID: 1656449127}
   - component: {fileID: 1656449126}
+  - component: {fileID: 1656449128}
   m_Layer: 0
   m_Name: Witch
   m_TagString: Untagged
@@ -56545,7 +56578,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1469822518}
+  - {fileID: 794237227}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1656449125
@@ -56560,6 +56593,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01b4a1cde580a4e4e93f7a89ac5b53b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animator: {fileID: 1656449128}
   LevelGen: {fileID: 955194710}
   gameManager: {fileID: 1578835377}
   speed: 1
@@ -56582,7 +56616,7 @@ CapsuleCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -56617,6 +56651,27 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!95 &1656449128
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1656449123}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 9488d626c6574c14c91f249605a84dba, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1656477267
 GameObject:
   m_ObjectHideFlags: 0

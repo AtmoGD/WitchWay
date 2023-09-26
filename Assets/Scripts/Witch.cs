@@ -4,13 +4,15 @@ using UnityEngine;
 
 public class Witch : MonoBehaviour
 {
+    [SerializeField] private Animator animator = null;
     [SerializeField] private LevelGenerator LevelGen = null;
     [SerializeField] private GameManager gameManager = null;
     [SerializeField] private float speed = 1f;
     [SerializeField] private float rotationSpeed = 1f;
     [SerializeField] private LayerMask blockLayer = 0;
 
-    private int dir = 30;
+    public int Dir { get; private set; } = 30;
+    public bool IsImmune { get; private set; } = false;
     private bool isActive = false;
     private Block targetBlock = null;
 
@@ -34,6 +36,8 @@ public class Witch : MonoBehaviour
 
         Move();
         Rotate();
+
+        animator.SetFloat("SpeedMultiplier", gameManager.SpeedMultiplier);
     }
 
     public void Move()
@@ -54,7 +58,7 @@ public class Witch : MonoBehaviour
 
     public void Turn(int direction)
     {
-        dir += direction * 60;
+        Dir += direction * 60;
     }
 
     public void TurnRight()
@@ -79,12 +83,40 @@ public class Witch : MonoBehaviour
 
     public void Die()
     {
+        isActive = false;
         Destroy(gameObject);
+    }
+
+    public void SetImmune()
+    {
+        IsImmune = true;
+    }
+
+    public void Jump()
+    {
+        animator.SetTrigger("Jump");
     }
 
     public void CheckCurrentBlock()
     {
-        // Check if the current block is a obstacle and if so die
+        if (targetBlock == null) return;
+
+        switch (targetBlock.BlockType)
+        {
+            case BlockType.Obstacle:
+                if (!IsImmune)
+                    Die();
+                break;
+            case BlockType.Wall:
+                Die();
+                break;
+            case BlockType.PowerUp:
+                break;
+            case BlockType.Base:
+                break;
+        }
+
+        IsImmune = false;
     }
 
     public bool SetFreeStartRotation()
@@ -95,8 +127,8 @@ public class Witch : MonoBehaviour
 
         while (directions.Count > 0)
         {
-            dir = directions[UnityEngine.Random.Range(0, directions.Count)];
-            directions.Remove(dir);
+            Dir = directions[UnityEngine.Random.Range(0, directions.Count)];
+            directions.Remove(Dir);
 
             CalculateNextBlock();
 
@@ -108,9 +140,9 @@ public class Witch : MonoBehaviour
         return false;
     }
 
-    public void CalculateNextBlock()
+    public void CalculateNextBlock(float _distance = 1f)
     {
-        Vector3 nextBlockPosition = transform.position + Quaternion.Euler(0, dir, 0) * Vector3.forward * LevelGen.HexagonSize;
+        Vector3 nextBlockPosition = transform.position + Quaternion.Euler(0, Dir, 0) * Vector3.forward * _distance * LevelGen.HexagonSize;
 
         Collider[] blocks = Physics.OverlapSphere(nextBlockPosition, 0.1f, blockLayer);
         if (blocks.Length > 0)

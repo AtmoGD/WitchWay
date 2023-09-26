@@ -22,8 +22,15 @@ public class Block : MonoBehaviour
 
         if (BlockType != BlockType.Base)
         {
+            if (BlockObject != null)
+                Destroy(BlockObject);
+
             BlockObject = Instantiate(_prefab, transform.position, _prefab.transform.rotation, ObjectParent);
             BlockObject.transform.localScale = Vector3.one;
+
+            ActiveController activeController = BlockObject.GetComponent<ActiveController>();
+            if (activeController != null)
+                activeController.IsSetActive = true;
         }
     }
 }

@@ -10,7 +10,18 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 671541800922931436, guid: 78d8edf8ce69e614faf247d501e4edc3,
         type: 3}
+      propertyPath: <Prefab>k__BackingField
+      value: 
+      objectReference: {fileID: 930355271255020414, guid: da6f770af633a8d42a58cf65a69cdf9f,
+        type: 3}
+    - target: {fileID: 671541800922931436, guid: 78d8edf8ce69e614faf247d501e4edc3,
+        type: 3}
       propertyPath: <CanBePlacedOn>k__BackingField.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 671541800922931436, guid: 78d8edf8ce69e614faf247d501e4edc3,
+        type: 3}
+      propertyPath: <CanBePlacedOn>k__BackingField.Array.data[0]
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 671541800922931436, guid: 78d8edf8ce69e614faf247d501e4edc3,

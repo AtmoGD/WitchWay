@@ -2,21 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Turn : MonoBehaviour
+public class Bridge : MonoBehaviour
 {
-    [SerializeField] private int dir = 1;
+    [SerializeField] private int dir = 30;
 
     private void OnTriggerEnter(Collider other)
     {
         Witch witch = other.GetComponent<Witch>();
         if (witch != null)
-            witch.Turn(dir);
+        {
+            if (witch.Dir % 360 == dir || witch.Dir % 360 == (dir + 180) % 360)
+                witch.SetImmune();
+        }
 
-        Die();
-    }
-
-    private void Die()
-    {
-        Destroy(gameObject);
     }
 }

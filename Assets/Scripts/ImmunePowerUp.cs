@@ -2,17 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Turn : MonoBehaviour
+public class ImmunePowerUp : MonoBehaviour
 {
-    [SerializeField] private int dir = 1;
-
+    [SerializeField] private bool dieOnTrigger = true;
     private void OnTriggerEnter(Collider other)
     {
         Witch witch = other.GetComponent<Witch>();
         if (witch != null)
-            witch.Turn(dir);
+            witch.SetImmune();
 
-        Die();
+        if (dieOnTrigger)
+            Die();
     }
 
     private void Die()
