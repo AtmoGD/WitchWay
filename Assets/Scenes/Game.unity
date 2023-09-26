@@ -55552,6 +55552,7 @@ GameObject:
   - component: {fileID: 1578835377}
   - component: {fileID: 1578835380}
   - component: {fileID: 1578835379}
+  - component: {fileID: 1578835381}
   m_Layer: 0
   m_Name: Game Manager
   m_TagString: Untagged
@@ -55574,30 +55575,9 @@ MonoBehaviour:
   witch: {fileID: 1656449125}
   levelGenerator: {fileID: 955194710}
   placementController: {fileID: 1578835380}
-  speedCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    - serializedVersion: 3
-      time: 50.488205
-      value: 3
-      inSlope: 0.10494756
-      outSlope: 0.10494756
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.3029965
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
+  minSpeed: 1
+  maxSpeed: 4.5
+  speedIncrease: 0.05
 --- !u!4 &1578835378
 Transform:
   m_ObjectHideFlags: 0
@@ -55691,6 +55671,26 @@ MonoBehaviour:
   placementLayer:
     serializedVersion: 2
     m_Bits: 128
+--- !u!114 &1578835381
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1578835376}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dcd577338a0fb5d4faa0ffd52eddcc84, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameManager: {fileID: 1578835377}
+  levelGenerator: {fileID: 955194710}
+  hourglass: {fileID: 6511977305178857188, guid: 718974e02ea551c468a9e1a783eeeffa,
+    type: 3}
+  hourglassSpawnChance: 0.05
+  hourglassSpawnTime: 2
+  minHourglasses: 1
+  maxHourglasses: 5
 --- !u!1 &1582163410
 GameObject:
   m_ObjectHideFlags: 0

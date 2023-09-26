@@ -7,15 +7,20 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Witch witch = null;
     [SerializeField] private LevelGenerator levelGenerator = null;
     [SerializeField] private PlacementController placementController = null;
-    [SerializeField] private AnimationCurve speedCurve = null;
+    // [SerializeField] private AnimationCurve speedCurve = null;
+    [SerializeField] private float minSpeed = 1f;
+    [SerializeField] private float maxSpeed = 4.5f;
+    [SerializeField] private float speedIncrease = 0.05f;
 
     public bool IsSetActive { get; private set; } = false;
     public float GameTime { get; private set; } = 0f;
+    private float speedManipulator = 1f;
     public float SpeedMultiplier
     {
         get
         {
-            return speedCurve.Evaluate(GameTime * 0.1f);
+            // return speedCurve.Evaluate(GameTime * 0.1f);
+            return speedManipulator;
         }
     }
 
@@ -43,11 +48,20 @@ public class GameManager : MonoBehaviour
         IsSetActive = false;
     }
 
+    public void AddTime(float _amount)
+    {
+        speedManipulator += _amount;
+        speedManipulator = Mathf.Clamp(speedManipulator, minSpeed, maxSpeed);
+    }
+
     public void Update()
     {
         if (!IsSetActive) return;
 
         GameTime += Time.deltaTime;
+
+        speedManipulator += Time.deltaTime * speedIncrease;
+        speedManipulator = Mathf.Clamp(speedManipulator, minSpeed, maxSpeed);
     }
 
     public void PositionWitch(int _maxCount)

@@ -62,13 +62,7 @@ public class LevelGenerator : MonoBehaviour
 
     public void SetStartBlock()
     {
-        List<Block> blocks = new List<Block>();
-        foreach (Transform child in transform)
-        {
-            Block block = child.GetComponent<Block>();
-            if (block != null && block.BlockType == BlockType.Base)
-                blocks.Add(block);
-        }
+        List<Block> blocks = GetBaseBlocks();
 
         if (blocks.Count > 0)
             StartBlock = blocks[UnityEngine.Random.Range(0, blocks.Count)];
@@ -86,6 +80,18 @@ public class LevelGenerator : MonoBehaviour
         }
 
         StartBlock = null;
+    }
+
+    public List<Block> GetBaseBlocks()
+    {
+        List<Block> blocks = new List<Block>();
+        foreach (Transform child in transform)
+        {
+            Block block = child.GetComponent<Block>();
+            if (block != null && block.BlockType == BlockType.Base)
+                blocks.Add(block);
+        }
+        return blocks;
     }
 
     private BlockData GetRandomBlock(List<BlockData> _blockToChooseFrom)
