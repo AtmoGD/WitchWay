@@ -53698,7 +53698,7 @@ MonoBehaviour:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0.2999878
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -56596,8 +56596,8 @@ MonoBehaviour:
   animator: {fileID: 1656449128}
   LevelGen: {fileID: 955194710}
   gameManager: {fileID: 1578835377}
-  speed: 1
-  rotationSpeed: 150
+  speed: 0.5
+  rotationSpeed: 100
   blockLayer:
     serializedVersion: 2
     m_Bits: 128
