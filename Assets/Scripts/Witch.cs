@@ -110,6 +110,9 @@ public class Witch : MonoBehaviour
             case BlockType.Wall:
                 Die();
                 break;
+            case BlockType.Vanished:
+                Die();
+                break;
             case BlockType.PowerUp:
                 break;
             case BlockType.Base:

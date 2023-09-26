@@ -66,6 +66,8 @@ public class LevelGenerator : MonoBehaviour
 
         if (blocks.Count > 0)
             StartBlock = blocks[UnityEngine.Random.Range(0, blocks.Count)];
+        else
+            print("No base blocks found!");
     }
 
     public void ClearLevel()

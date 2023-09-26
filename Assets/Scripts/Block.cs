@@ -7,14 +7,17 @@ public enum BlockType
     Base,
     Wall,
     Obstacle,
-    PowerUp
+    PowerUp,
+    Vanished
 }
 
 public class Block : MonoBehaviour
 {
+    [field: SerializeField] public Animator Animator { get; set; } = null;
     [field: SerializeField] public Transform ObjectParent { get; set; } = null;
     [field: SerializeField] public BlockType BlockType { get; set; } = BlockType.Base;
-    [field: SerializeField] public GameObject BlockObject { get; set; } = null;
+
+    public GameObject BlockObject { get; set; } = null;
 
     public void SetBlock(BlockType _blockType, GameObject _prefab)
     {
@@ -36,5 +39,17 @@ public class Block : MonoBehaviour
             if (turn != null)
                 turn.SetBlock(this);
         }
+    }
+
+    public void Vanish()
+    {
+        BlockType = BlockType.Vanished;
+
+        // if (BlockObject != null)
+        //     Destroy(BlockObject);
+
+        // BlockObject = null;
+
+        Animator.SetTrigger("Vanish");
     }
 }
