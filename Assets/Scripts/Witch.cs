@@ -10,6 +10,7 @@ public class Witch : MonoBehaviour
     [SerializeField] private float speed = 1f;
     [SerializeField] private float rotationSpeed = 1f;
     [SerializeField] private LayerMask blockLayer = 0;
+    [SerializeField] private GameObject dieObject = null;
 
     public int Dir { get; private set; } = 30;
     public bool IsImmune { get; private set; } = false;
@@ -84,6 +85,12 @@ public class Witch : MonoBehaviour
     public void Die()
     {
         isActive = false;
+
+        if (dieObject != null)
+            Instantiate(dieObject, transform.position, Quaternion.identity);
+
+        gameManager.EndLevel();
+
         Destroy(gameObject);
     }
 

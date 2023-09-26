@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Witch witch = null;
     [SerializeField] private LevelGenerator levelGenerator = null;
     [SerializeField] private PlacementController placementController = null;
+    [SerializeField] private UIController uiController = null;
     // [SerializeField] private AnimationCurve speedCurve = null;
     [SerializeField] private float minSpeed = 1f;
     [SerializeField] private float maxSpeed = 4.5f;
@@ -46,6 +47,12 @@ public class GameManager : MonoBehaviour
     public void EndLevel()
     {
         IsSetActive = false;
+
+        float highScore = PlayerPrefs.GetFloat("HighScore", 0f);
+        if (GameTime > highScore)
+            PlayerPrefs.SetFloat("HighScore", GameTime);
+
+        uiController.StartGameOver();
     }
 
     public void AddTime(float _amount)
