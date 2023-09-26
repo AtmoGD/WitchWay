@@ -13,6 +13,16 @@ PrefabInstance:
       propertyPath: <BlockType>k__BackingField
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1366950986076941382, guid: 78d8edf8ce69e614faf247d501e4edc3,
+        type: 3}
+      propertyPath: m_text
+      value: Tree
+      objectReference: {fileID: 0}
+    - target: {fileID: 1366950986076941382, guid: 78d8edf8ce69e614faf247d501e4edc3,
+        type: 3}
+      propertyPath: m_fontSize
+      value: 49.45
+      objectReference: {fileID: 0}
     - target: {fileID: 4447932541294703850, guid: 78d8edf8ce69e614faf247d501e4edc3,
         type: 3}
       propertyPath: m_Pivot.x

@@ -19,6 +19,18 @@ PrefabInstance:
       propertyPath: <BlockType>k__BackingField
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 1366950986076941382, guid: 78d8edf8ce69e614faf247d501e4edc3,
+        type: 3}
+      propertyPath: m_text
+      value: 'Turn
+
+        Left'
+      objectReference: {fileID: 0}
+    - target: {fileID: 1366950986076941382, guid: 78d8edf8ce69e614faf247d501e4edc3,
+        type: 3}
+      propertyPath: m_fontSize
+      value: 44.1
+      objectReference: {fileID: 0}
     - target: {fileID: 4447932541294703850, guid: 78d8edf8ce69e614faf247d501e4edc3,
         type: 3}
       propertyPath: m_Pivot.x
@@ -122,17 +134,17 @@ PrefabInstance:
     - target: {fileID: 6675329109611328528, guid: 78d8edf8ce69e614faf247d501e4edc3,
         type: 3}
       propertyPath: m_Color.b
-      value: 0
+      value: 0.3490566
       objectReference: {fileID: 0}
     - target: {fileID: 6675329109611328528, guid: 78d8edf8ce69e614faf247d501e4edc3,
         type: 3}
       propertyPath: m_Color.g
-      value: 0
+      value: 0.3490566
       objectReference: {fileID: 0}
     - target: {fileID: 6675329109611328528, guid: 78d8edf8ce69e614faf247d501e4edc3,
         type: 3}
       propertyPath: m_Color.r
-      value: 0
+      value: 0.3490566
       objectReference: {fileID: 0}
     - target: {fileID: 6695232454328769512, guid: 78d8edf8ce69e614faf247d501e4edc3,
         type: 3}

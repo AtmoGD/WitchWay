@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &6180173405118741893
+--- !u!1001 &3420360490681902048
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -8,12 +8,38 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 671541800922931436, guid: 78d8edf8ce69e614faf247d501e4edc3,
+        type: 3}
+      propertyPath: <Prefab>k__BackingField
+      value: 
+      objectReference: {fileID: 8707329009630523716, guid: 68349e4008529b24b859fd1cfe83e8ce,
+        type: 3}
+    - target: {fileID: 671541800922931436, guid: 78d8edf8ce69e614faf247d501e4edc3,
+        type: 3}
+      propertyPath: <BlockType>k__BackingField
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 671541800922931436, guid: 78d8edf8ce69e614faf247d501e4edc3,
+        type: 3}
+      propertyPath: <CanBePlacedOn>k__BackingField.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 671541800922931436, guid: 78d8edf8ce69e614faf247d501e4edc3,
+        type: 3}
+      propertyPath: <CanBePlacedOn>k__BackingField.Array.data[0]
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 671541800922931436, guid: 78d8edf8ce69e614faf247d501e4edc3,
+        type: 3}
+      propertyPath: <CanBePlacedOn>k__BackingField.Array.data[1]
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 1366950986076941382, guid: 78d8edf8ce69e614faf247d501e4edc3,
         type: 3}
       propertyPath: m_text
-      value: 'Spider
+      value: 'Bridge
 
-        Web'
+        30'
       objectReference: {fileID: 0}
     - target: {fileID: 1366950986076941382, guid: 78d8edf8ce69e614faf247d501e4edc3,
         type: 3}
@@ -120,10 +146,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6675329109611328528, guid: 78d8edf8ce69e614faf247d501e4edc3,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 0.12323477
+      objectReference: {fileID: 0}
+    - target: {fileID: 6675329109611328528, guid: 78d8edf8ce69e614faf247d501e4edc3,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 0.35235038
+      objectReference: {fileID: 0}
+    - target: {fileID: 6675329109611328528, guid: 78d8edf8ce69e614faf247d501e4edc3,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 0.6320754
+      objectReference: {fileID: 0}
     - target: {fileID: 6695232454328769512, guid: 78d8edf8ce69e614faf247d501e4edc3,
         type: 3}
       propertyPath: m_Name
-      value: SpiderWeb
+      value: Bridge30
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

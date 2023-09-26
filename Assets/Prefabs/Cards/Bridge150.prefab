@@ -12,8 +12,13 @@ PrefabInstance:
         type: 3}
       propertyPath: <Prefab>k__BackingField
       value: 
-      objectReference: {fileID: 930355271255020414, guid: da6f770af633a8d42a58cf65a69cdf9f,
+      objectReference: {fileID: 8707329009630523716, guid: 6c7941a4253f5544da262034496bf516,
         type: 3}
+    - target: {fileID: 671541800922931436, guid: 78d8edf8ce69e614faf247d501e4edc3,
+        type: 3}
+      propertyPath: <BlockType>k__BackingField
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 671541800922931436, guid: 78d8edf8ce69e614faf247d501e4edc3,
         type: 3}
       propertyPath: <CanBePlacedOn>k__BackingField.Array.size
@@ -28,6 +33,18 @@ PrefabInstance:
         type: 3}
       propertyPath: <CanBePlacedOn>k__BackingField.Array.data[1]
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1366950986076941382, guid: 78d8edf8ce69e614faf247d501e4edc3,
+        type: 3}
+      propertyPath: m_text
+      value: 'Bridge
+
+        150'
+      objectReference: {fileID: 0}
+    - target: {fileID: 1366950986076941382, guid: 78d8edf8ce69e614faf247d501e4edc3,
+        type: 3}
+      propertyPath: m_fontSize
+      value: 34.5
       objectReference: {fileID: 0}
     - target: {fileID: 4447932541294703850, guid: 78d8edf8ce69e614faf247d501e4edc3,
         type: 3}
@@ -147,7 +164,7 @@ PrefabInstance:
     - target: {fileID: 6695232454328769512, guid: 78d8edf8ce69e614faf247d501e4edc3,
         type: 3}
       propertyPath: m_Name
-      value: Bridge
+      value: Bridge150
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

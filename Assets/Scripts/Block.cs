@@ -31,6 +31,10 @@ public class Block : MonoBehaviour
             ActiveController activeController = BlockObject.GetComponent<ActiveController>();
             if (activeController != null)
                 activeController.IsSetActive = true;
+
+            Turn turn = BlockObject.GetComponent<Turn>();
+            if (turn != null)
+                turn.SetBlock(this);
         }
     }
 }
