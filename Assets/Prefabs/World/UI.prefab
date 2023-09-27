@@ -1243,21 +1243,21 @@ MonoBehaviour:
   startPosition: {fileID: 98314585022681088}
   cardDatas:
   - card: {fileID: 6902680685854951543, guid: 3f9ed1d4d0c6a8549a84eb73330a4c8e, type: 3}
-    spawnChance: 5
+    spawnChance: 3
   - card: {fileID: 5516347480608390610, guid: a8bac813dfba3874fa93233583906b13, type: 3}
-    spawnChance: 5
+    spawnChance: 3
   - card: {fileID: 4224700257773561768, guid: 73ff7e2831f6f85478b790cde202ea42, type: 3}
-    spawnChance: 1
+    spawnChance: 0.3
   - card: {fileID: 1665392253562254255, guid: 8ddddc69e6ed406439d7b4637c46d7e8, type: 3}
     spawnChance: 0.3
   - card: {fileID: 2752403818914479490, guid: 214623f811cb06446ae1f989668cc763, type: 3}
     spawnChance: 0.1
   - card: {fileID: 2748959437350126348, guid: d19a869eb75ada34f94675340bc79afd, type: 3}
-    spawnChance: 0.3
+    spawnChance: 1
   - card: {fileID: 2748959437350126348, guid: 96da2893c3e50144e855bbf4466e00a0, type: 3}
-    spawnChance: 0.3
+    spawnChance: 1
   - card: {fileID: 2748959437350126348, guid: 1f08c913f5a0153489dd292410ac4115, type: 3}
-    spawnChance: 0.3
+    spawnChance: 1
   - card: {fileID: 7223357560489745295, guid: 2f175bf376ca43442a453e39cfc805a4, type: 3}
     spawnChance: 0.1
   - card: {fileID: 7889078150232113136, guid: 6deee5e9fbf8ab2439dfd237830e9e62, type: 3}
