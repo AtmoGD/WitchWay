@@ -13,6 +13,11 @@ PrefabInstance:
       propertyPath: m_text
       value: Acid
       objectReference: {fileID: 0}
+    - target: {fileID: 1366950986076941382, guid: 78d8edf8ce69e614faf247d501e4edc3,
+        type: 3}
+      propertyPath: m_fontSize
+      value: 51.45
+      objectReference: {fileID: 0}
     - target: {fileID: 4447932541294703850, guid: 78d8edf8ce69e614faf247d501e4edc3,
         type: 3}
       propertyPath: m_Pivot.x
@@ -115,23 +120,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6675329109611328528, guid: 78d8edf8ce69e614faf247d501e4edc3,
         type: 3}
-      propertyPath: m_Color.b
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6675329109611328528, guid: 78d8edf8ce69e614faf247d501e4edc3,
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 12aee3731ac00af4e9c9bbf93da840b9,
         type: 3}
-      propertyPath: m_Color.g
-      value: 0.60062885
-      objectReference: {fileID: 0}
-    - target: {fileID: 6675329109611328528, guid: 78d8edf8ce69e614faf247d501e4edc3,
-        type: 3}
-      propertyPath: m_Color.r
-      value: 0.9305141
-      objectReference: {fileID: 0}
     - target: {fileID: 6695232454328769512, guid: 78d8edf8ce69e614faf247d501e4edc3,
         type: 3}
       propertyPath: m_Name
       value: Acid
+      objectReference: {fileID: 0}
+    - target: {fileID: 8264931181313743065, guid: 78d8edf8ce69e614faf247d501e4edc3,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

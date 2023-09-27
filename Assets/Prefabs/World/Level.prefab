@@ -59048,6 +59048,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01f4053d51214b647af5da82398d7dda, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  generateOnStart: 1
   blocks:
   - prefab: {fileID: 1898896177567544482, guid: 059609de13b56ea488e9be3c9fce3ff1,
       type: 3}
@@ -59063,7 +59064,7 @@ MonoBehaviour:
   <Height>k__BackingField: 12
   <HexagonSize>k__BackingField: 1.73
   <HexagonSpacing>k__BackingField: 0
-  <ObstacleSpawnChance>k__BackingField: 0.01
+  <ObstacleSpawnChance>k__BackingField: 0.03
 --- !u!1 &8918788459794746646
 GameObject:
   m_ObjectHideFlags: 0

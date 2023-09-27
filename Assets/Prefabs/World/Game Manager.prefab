@@ -54,7 +54,7 @@ MonoBehaviour:
   uiController: {fileID: 0}
   minSpeed: 1
   maxSpeed: 4.5
-  speedIncrease: 0.05
+  speedIncrease: 0.01
 --- !u!114 &7400825565065760564
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -166,5 +166,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levelGenerator: {fileID: 0}
-  vanishTime: 3
-  vanishChance: 0.5
+  vanishTime: 4
+  vanishChance: 0.25

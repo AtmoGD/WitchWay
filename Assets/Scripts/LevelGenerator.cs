@@ -13,6 +13,7 @@ public class BlockData
 public class LevelGenerator : MonoBehaviour
 {
     [Header("Level Generation")]
+    [SerializeField] private bool generateOnStart = true;
     [SerializeField] private List<BlockData> blocks = new List<BlockData>();
     [SerializeField] private List<BlockData> walls = new List<BlockData>();
     [SerializeField] private List<BlockData> obstacles = new List<BlockData>();
@@ -26,7 +27,8 @@ public class LevelGenerator : MonoBehaviour
 
     private void Start()
     {
-        GenerateLevel();
+        if (generateOnStart)
+            GenerateLevel();
     }
 
     public void GenerateLevel()
