@@ -1,9 +1,19 @@
 fileFormatVersion: 2
-guid: 7f41b57eeb4a71b4da899f8eaffb94d7
+guid: 16510e8087e408249a87cdd076ffbc0e
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Mat_Glass
+    second: {fileID: 2100000, guid: fb8d16036e88f194db89f7ba7cdd677b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Mat_Hourglass
+    second: {fileID: 2100000, guid: 5a45693718ecb91498856cec6aae25a0, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

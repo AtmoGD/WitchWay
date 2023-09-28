@@ -7,6 +7,8 @@ public class HourglassSpawner : MonoBehaviour
     [SerializeField] private GameManager gameManager = null;
     [SerializeField] private LevelGenerator levelGenerator = null;
     [SerializeField] private Hourglass hourglass = null;
+    [SerializeField] private GameObject magicMushroom = null;
+    [SerializeField] private float magicMushroomSpawnChance = 0.1f;
     [SerializeField] private float hourglassSpawnChance = 0.1f;
     [SerializeField] private float hourglassSpawnTime = 5f;
     [SerializeField] private int minHourglasses = 1;
@@ -24,7 +26,10 @@ public class HourglassSpawner : MonoBehaviour
         if (timer >= hourglassSpawnTime)
         {
             timer = 0f;
-            if (Random.Range(0f, 1f) <= hourglassSpawnChance)
+
+            if (Random.Range(0f, 1f) <= magicMushroomSpawnChance)
+                SpawnMagicMushroom();
+            else if (Random.Range(0f, 1f) <= hourglassSpawnChance)
                 SpawnHourglass();
         }
     }
@@ -45,6 +50,18 @@ public class HourglassSpawner : MonoBehaviour
             newHourglass.SetBlock(block);
 
             hourglasses.Add(newHourglass);
+        }
+    }
+
+    public void SpawnMagicMushroom()
+    {
+        List<Block> blocks = levelGenerator.GetBaseBlocks();
+
+        if (blocks.Count > 0)
+        {
+            Block block = blocks[Random.Range(0, blocks.Count)];
+
+            block.SetBlock(BlockType.PowerUp, magicMushroom);
         }
     }
 

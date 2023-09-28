@@ -13,9 +13,11 @@ public class Hourglass : MonoBehaviour
     {
         Witch witch = other.GetComponent<Witch>();
         if (witch != null)
+        {
             gameManager.AddTime(timeManiputlation);
-
-        Die();
+            witch.PowerUp();
+            Die();
+        }
     }
 
     public void SetGameManager(GameManager _gameManager)

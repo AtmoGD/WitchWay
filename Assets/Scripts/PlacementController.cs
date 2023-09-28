@@ -5,6 +5,8 @@ using UnityEngine.InputSystem;
 
 public class PlacementController : MonoBehaviour
 {
+    [SerializeField] private AudioSource placeAudioSource = null;
+    [SerializeField] private AudioSource cancelAudioSource = null;
     [SerializeField] private LayerMask placementLayer = 0;
     private Vector2 pointerPosition = Vector2.zero;
     private bool isPlacing = false;
@@ -29,10 +31,12 @@ public class PlacementController : MonoBehaviour
         {
             block.SetBlock(card.BlockType, card.Prefab);
             card.Die();
+            placeAudioSource.Play();
         }
         else
         {
             card.CancelPlacement();
+            cancelAudioSource.Play();
         }
 
         ResetThis();

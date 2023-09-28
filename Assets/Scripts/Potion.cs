@@ -4,17 +4,31 @@ using UnityEngine;
 
 public class Potion : MonoBehaviour
 {
+    [SerializeField] private MeshRenderer meshRenderer = null;
     [SerializeField] private GameObject diePrefab = null;
     private void OnTriggerEnter(Collider other)
     {
         Witch witch = other.GetComponent<Witch>();
         if (witch != null)
         {
-            if (!witch.IsImmune)
-            {
-                witch.SetImmune();
-                Die();
-            }
+            witch.PowerUp();
+            meshRenderer.enabled = false;
+            // if (!witch.IsImmune)
+            // {
+            //     witch.SetImmune();
+            //     witch.PowerUp();
+            //     Die();
+            // }
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        Witch witch = other.GetComponent<Witch>();
+        if (witch != null)
+        {
+            witch.SetImmune();
+            Die();
         }
     }
 

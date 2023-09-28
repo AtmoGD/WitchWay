@@ -7,10 +7,12 @@ public class Witch : MonoBehaviour
     [SerializeField] private Animator animator = null;
     [SerializeField] private LevelGenerator LevelGen = null;
     [SerializeField] private GameManager gameManager = null;
+    [SerializeField] private Animator magicMushroomController = null;
     [SerializeField] private float speed = 1f;
     [SerializeField] private float rotationSpeed = 1f;
     [SerializeField] private LayerMask blockLayer = 0;
     [SerializeField] private GameObject dieObject = null;
+    [SerializeField] private AudioSource powerUpSound = null;
 
     public int Dir { get; private set; } = 30;
     public bool IsImmune { get; private set; } = false;
@@ -80,6 +82,16 @@ public class Witch : MonoBehaviour
     public void SetIsActive()
     {
         isActive = true;
+    }
+
+    public void PowerUp()
+    {
+        powerUpSound.Play();
+    }
+
+    public void GetHigh()
+    {
+        magicMushroomController.SetTrigger("GetHigh");
     }
 
     public void Die()

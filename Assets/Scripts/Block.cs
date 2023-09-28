@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public enum BlockType
 {
@@ -15,6 +16,7 @@ public class Block : MonoBehaviour
 {
     [field: SerializeField] public Animator Animator { get; set; } = null;
     [field: SerializeField] public Transform ObjectParent { get; set; } = null;
+    [field: SerializeField] public BlockTopper BlockTopper { get; set; } = null;
     [field: SerializeField] public BlockType BlockType { get; set; } = BlockType.Base;
 
     public GameObject BlockObject { get; set; } = null;
@@ -39,17 +41,14 @@ public class Block : MonoBehaviour
             if (turn != null)
                 turn.SetBlock(this);
         }
+
+        if (BlockTopper != null)
+            BlockTopper.UpdateTopper(BlockType);
     }
 
     public void Vanish()
     {
         BlockType = BlockType.Vanished;
-
-        // if (BlockObject != null)
-        //     Destroy(BlockObject);
-
-        // BlockObject = null;
-
         Animator.SetTrigger("Vanish");
     }
 }

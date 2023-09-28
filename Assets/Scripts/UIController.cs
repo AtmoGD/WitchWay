@@ -44,7 +44,7 @@ public class UIController : MonoBehaviour
 
         gameOverScoreText.text = timerText.text;
 
-        float highScore = PlayerPrefs.GetFloat("HighScore", 0f);
+        float highScore = PlayerPrefs.GetFloat(gameManager.LevelName + "HighScore", 0f);
         gameOverHighScoreText.text = $"{Mathf.Floor(highScore / 60):00}:{highScore % 60:00}";
     }
 

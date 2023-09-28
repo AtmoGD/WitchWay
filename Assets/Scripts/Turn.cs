@@ -11,9 +11,12 @@ public class Turn : MonoBehaviour
     {
         Witch witch = other.GetComponent<Witch>();
         if (witch != null)
+        {
             witch.Turn(dir);
+            witch.PowerUp();
+            Die();
+        }
 
-        Die();
     }
 
     public void SetBlock(Block block)

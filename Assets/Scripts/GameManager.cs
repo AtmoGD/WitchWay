@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    [field: SerializeField] public string LevelName { get; private set; } = "Level";
     [SerializeField] private Witch witch = null;
     [SerializeField] private LevelGenerator levelGenerator = null;
     [SerializeField] private PlacementController placementController = null;
     [SerializeField] private UIController uiController = null;
-    // [SerializeField] private AnimationCurve speedCurve = null;
     [SerializeField] private float minSpeed = 1f;
     [SerializeField] private float maxSpeed = 4.5f;
     [SerializeField] private float speedIncrease = 0.05f;
@@ -20,7 +20,6 @@ public class GameManager : MonoBehaviour
     {
         get
         {
-            // return speedCurve.Evaluate(GameTime * 0.1f);
             return speedManipulator;
         }
     }
@@ -48,9 +47,9 @@ public class GameManager : MonoBehaviour
     {
         IsSetActive = false;
 
-        float highScore = PlayerPrefs.GetFloat("HighScore", 0f);
+        float highScore = PlayerPrefs.GetFloat(LevelName + "HighScore", 0f);
         if (GameTime > highScore)
-            PlayerPrefs.SetFloat("HighScore", GameTime);
+            PlayerPrefs.SetFloat(LevelName + "HighScore", GameTime);
 
         uiController.StartGameOver();
     }

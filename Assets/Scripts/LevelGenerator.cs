@@ -25,7 +25,7 @@ public class LevelGenerator : MonoBehaviour
 
     public Block StartBlock { get; private set; } = null;
 
-    private void Start()
+    private void Awake()
     {
         if (generateOnStart)
             GenerateLevel();
@@ -109,7 +109,7 @@ public class LevelGenerator : MonoBehaviour
                 return block;
         }
 
-        return null;
+        return _blockToChooseFrom[UnityEngine.Random.Range(0, _blockToChooseFrom.Count)];
     }
 
     private void OnDrawGizmos()
