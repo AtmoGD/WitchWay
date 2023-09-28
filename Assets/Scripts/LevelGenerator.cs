@@ -25,7 +25,7 @@ public class LevelGenerator : MonoBehaviour
 
     public Block StartBlock { get; private set; } = null;
 
-    private void Awake()
+    private void Start()
     {
         if (generateOnStart)
             GenerateLevel();

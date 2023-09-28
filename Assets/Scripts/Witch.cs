@@ -33,7 +33,8 @@ public class Witch : MonoBehaviour
 
         if (targetBlock == null)
         {
-            isActive = false;
+            CalculateNextBlock();
+            // isActive = false;
             return;
         }
 

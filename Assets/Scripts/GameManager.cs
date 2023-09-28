@@ -7,7 +7,6 @@ public class GameManager : MonoBehaviour
     [field: SerializeField] public string LevelName { get; private set; } = "Level";
     [SerializeField] private Witch witch = null;
     [SerializeField] private LevelGenerator levelGenerator = null;
-    [SerializeField] private PlacementController placementController = null;
     [SerializeField] private UIController uiController = null;
     [SerializeField] private float minSpeed = 1f;
     [SerializeField] private float maxSpeed = 4.5f;

@@ -36,6 +36,8 @@ public class HourglassSpawner : MonoBehaviour
 
     public void SpawnHourglass()
     {
+        if (hourglasses.Count >= maxHourglasses) return;
+
         List<Block> blocks = levelGenerator.GetBaseBlocks();
 
         if (blocks.Count > 0)
