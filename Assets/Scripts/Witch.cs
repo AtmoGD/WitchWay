@@ -27,6 +27,13 @@ public class Witch : MonoBehaviour
         }
     }
 
+    private void Start()
+    {
+        animator.SetFloat("SpeedMultiplier", gameManager.SpeedMultiplier);
+
+        print("Start Witch");
+    }
+
     private void Update()
     {
         if (!isActive) return;

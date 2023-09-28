@@ -10,10 +10,17 @@ public class UIMenuController : MonoBehaviour
 
     private bool isLoading = false;
 
+    private void Start()
+    {
+        print("Start UI Menu Controller");
+    }
+
     public void ShowStartScreen()
     {
         if (isLoading)
             return;
+
+        print("Show Start Screen");
 
         animator.SetBool("StartScreenOpen", true);
         animator.SetBool("LevelSelectionOpen", false);
@@ -25,6 +32,8 @@ public class UIMenuController : MonoBehaviour
         if (isLoading)
             return;
 
+        print("Show Level Select");
+
         animator.SetBool("StartScreenOpen", false);
         animator.SetBool("LevelSelectionOpen", true);
         animator.SetBool("CreditsOpen", false);
@@ -35,6 +44,8 @@ public class UIMenuController : MonoBehaviour
         if (isLoading)
             return;
 
+        print("Show Credits");
+
         animator.SetBool("StartScreenOpen", false);
         animator.SetBool("LevelSelectionOpen", false);
         animator.SetBool("CreditsOpen", true);
@@ -42,17 +53,19 @@ public class UIMenuController : MonoBehaviour
 
     public void ExitGame()
     {
-#if UNITY_EDITOR
-        UnityEditor.EditorApplication.isPlaying = false;
-#else
-        Application.Quit();
-#endif
+        // #if UNITY_EDITOR
+        //         UnityEditor.EditorApplication.isPlaying = false;
+        // #elif UNITY_STANDALONE
+        //         Application.Quit();
+        // #endif
     }
 
     public void LoadLevel(int level)
     {
         if (isLoading)
             return;
+
+        print("Load Level " + level);
 
         StartCoroutine(LoadLevelCoroutine(level));
     }
@@ -61,9 +74,13 @@ public class UIMenuController : MonoBehaviour
     {
         isLoading = true;
 
+        print("Load Level Coroutine");
+
         loadingAnimator.SetTrigger("FadeIn");
 
         yield return new WaitForSeconds(1f);
+
+        print("Load Level Coroutine 2");
 
         SceneManager.LoadScene(_level);
 
