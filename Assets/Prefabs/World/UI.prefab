@@ -1251,21 +1251,21 @@ MonoBehaviour:
   - card: {fileID: 1665392253562254255, guid: 8ddddc69e6ed406439d7b4637c46d7e8, type: 3}
     spawnChance: 0.5
   - card: {fileID: 2752403818914479490, guid: 214623f811cb06446ae1f989668cc763, type: 3}
-    spawnChance: 2
-  - card: {fileID: 2748959437350126348, guid: d19a869eb75ada34f94675340bc79afd, type: 3}
-    spawnChance: 0.5
-  - card: {fileID: 2748959437350126348, guid: 96da2893c3e50144e855bbf4466e00a0, type: 3}
-    spawnChance: 0.5
-  - card: {fileID: 2748959437350126348, guid: 1f08c913f5a0153489dd292410ac4115, type: 3}
     spawnChance: 0.5
   - card: {fileID: 7223357560489745295, guid: 2f175bf376ca43442a453e39cfc805a4, type: 3}
-    spawnChance: 0.1
+    spawnChance: 0.5
   - card: {fileID: 7889078150232113136, guid: 6deee5e9fbf8ab2439dfd237830e9e62, type: 3}
-    spawnChance: 0.1
+    spawnChance: 0.5
   - card: {fileID: 6671424525860429161, guid: 7c0cdb0373fb5df4dadc18b51406e9d4, type: 3}
-    spawnChance: 0.1
+    spawnChance: 0.5
   - card: {fileID: 6671424525860429161, guid: 4392ac3092197b44fbd20d6304efeb8e, type: 3}
-    spawnChance: 0.1
+    spawnChance: 0.5
+  - card: {fileID: 2748959437350126348, guid: d19a869eb75ada34f94675340bc79afd, type: 3}
+    spawnChance: 0.7
+  - card: {fileID: 2748959437350126348, guid: 1f08c913f5a0153489dd292410ac4115, type: 3}
+    spawnChance: 0.7
+  - card: {fileID: 2748959437350126348, guid: 96da2893c3e50144e855bbf4466e00a0, type: 3}
+    spawnChance: 0.7
 --- !u!225 &7738054372288341103
 CanvasGroup:
   m_ObjectHideFlags: 0

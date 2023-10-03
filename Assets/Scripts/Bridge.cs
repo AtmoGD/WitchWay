@@ -11,8 +11,10 @@ public class Bridge : MonoBehaviour
         Witch witch = other.GetComponent<Witch>();
         if (witch != null)
         {
-            if (witch.Dir % 360 == dir || witch.Dir % 360 == (dir + 180) % 360)
+            if (witch.Dir == dir || witch.Dir == (dir + 180) % 360)
+            {
                 witch.SetImmune();
+            }
         }
 
     }

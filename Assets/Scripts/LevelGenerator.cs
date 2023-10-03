@@ -8,6 +8,7 @@ public class BlockData
 {
     public GameObject prefab;
     public float spawnChance;
+    public bool isWall;
 }
 
 public class LevelGenerator : MonoBehaviour
@@ -48,14 +49,19 @@ public class LevelGenerator : MonoBehaviour
                 BlockData blockData = GetRandomBlock(blocks);
 
                 Block block = Instantiate(blockData.prefab, position, blockData.prefab.transform.rotation, transform).GetComponent<Block>();
+                block.SetBlock(BlockType.Base, blockData.prefab);
 
                 bool isWall = x == 0 || x == Width - 1 || y == 0 || y == Height - 1;
                 bool isObstacle = UnityEngine.Random.Range(0f, 1f) <= ObstacleSpawnChance;
 
+                BlockData obstacle = GetRandomBlock(obstacles);
+
                 if (isWall)
                     block.SetBlock(BlockType.Wall, GetRandomBlock(walls).prefab);
+                else if (obstacle.isWall)
+                    block.SetBlock(BlockType.Wall, obstacle.prefab);
                 else if (isObstacle)
-                    block.SetBlock(BlockType.Obstacle, GetRandomBlock(obstacles).prefab);
+                    block.SetBlock(BlockType.Obstacle, obstacle.prefab);
             }
         }
 

@@ -30,8 +30,6 @@ public class Witch : MonoBehaviour
     private void Start()
     {
         animator.SetFloat("SpeedMultiplier", gameManager.SpeedMultiplier);
-
-        print("Start Witch");
     }
 
     private void Update()
@@ -41,7 +39,6 @@ public class Witch : MonoBehaviour
         if (targetBlock == null)
         {
             CalculateNextBlock();
-            // isActive = false;
             return;
         }
 
@@ -70,6 +67,7 @@ public class Witch : MonoBehaviour
     public void Turn(int direction)
     {
         Dir += direction * 60;
+        Dir = Dir < 0 ? Dir + 360 : Dir;
     }
 
     public void TurnRight()

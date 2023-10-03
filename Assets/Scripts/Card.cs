@@ -5,7 +5,6 @@ using UnityEngine.EventSystems;
 
 public class Card : MonoBehaviour, IPointerDownHandler
 {
-    [SerializeField] private float timeToLive = 30f;
     [SerializeField] private float speed = 1f;
     [field: SerializeField] public List<BlockType> CanBePlacedOn { get; private set; } = new List<BlockType>();
     [field: SerializeField] public BlockType BlockType { get; private set; } = BlockType.Obstacle;
@@ -14,12 +13,6 @@ public class Card : MonoBehaviour, IPointerDownHandler
     private Transform target = null;
     private CardController cardController = null;
     private bool isPlacing = false;
-    private float timeLeft = 0f;
-
-    private void Start()
-    {
-        timeLeft = timeToLive;
-    }
 
     private void Update()
     {

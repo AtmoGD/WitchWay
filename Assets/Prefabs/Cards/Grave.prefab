@@ -8,6 +8,12 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 671541800922931436, guid: 78d8edf8ce69e614faf247d501e4edc3,
+        type: 3}
+      propertyPath: <Prefab>k__BackingField
+      value: 
+      objectReference: {fileID: 5705517469343485158, guid: 5ddcab8fd2e22234bba4892a6715aac4,
+        type: 3}
     - target: {fileID: 1366950986076941382, guid: 78d8edf8ce69e614faf247d501e4edc3,
         type: 3}
       propertyPath: m_text

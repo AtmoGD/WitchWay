@@ -63160,29 +63160,37 @@ MonoBehaviour:
   - prefab: {fileID: 1898896177567544482, guid: 059609de13b56ea488e9be3c9fce3ff1,
       type: 3}
     spawnChance: 1
+    isWall: 0
   walls:
   - prefab: {fileID: 1415933902608002925, guid: 13f6ef1059b6c4a4a9332c35cd1ef066,
       type: 3}
     spawnChance: 1
+    isWall: 1
   obstacles:
   - prefab: {fileID: 5705517469343485158, guid: 640bf509d8d41d548a811fc4403a92eb,
       type: 3}
     spawnChance: 0.15
+    isWall: 0
   - prefab: {fileID: 5705517469343485158, guid: 5858e6977c1f375408f76cbc995c843c,
       type: 3}
     spawnChance: 0.15
+    isWall: 0
   - prefab: {fileID: 5705517469343485158, guid: 5ddcab8fd2e22234bba4892a6715aac4,
       type: 3}
     spawnChance: 0.1
+    isWall: 0
   - prefab: {fileID: 5705517469343485158, guid: f9da180d26920da4a97bb174b7f87ea5,
       type: 3}
     spawnChance: 0.1
+    isWall: 0
   - prefab: {fileID: 1415933902608002925, guid: 13f6ef1059b6c4a4a9332c35cd1ef066,
       type: 3}
-    spawnChance: 0.3
+    spawnChance: 0.05
+    isWall: 1
   - prefab: {fileID: 5705517469343485158, guid: 805719f9cac1de641843ec93b7c0ef2f,
       type: 3}
     spawnChance: 0.1
+    isWall: 0
   <Width>k__BackingField: 17
   <Height>k__BackingField: 12
   <HexagonSize>k__BackingField: 1.73
